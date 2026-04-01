@@ -1,0 +1,68 @@
+I want to start moving this project toward a more professional, Vercel-friendly codebase now — not just for future changes, but also by improving the current code as much as possible.
+
+My long-term workflow is:
+
+**Replit → VS Code → GitHub → Vercel**
+
+Right now, I understand the project may not be fully deployable on Vercel yet, and that is okay. I am still using Replit mainly to finalize the site blueprint, product flow, UI/UX, and core functionality. But from this point onward, I want you to help me actively refactor the existing codebase so it becomes **cleaner, safer, more portable, and more compatible with a normal GitHub + Vercel workflow**.
+
+### What I want you to do now
+
+Please inspect the current project and:
+
+1. identify what is currently **not Vercel-friendly**,
+2. identify what may cause **build, deployment, or portability issues** later,
+3. identify messy, tightly coupled, or overly Replit-specific parts of the codebase,
+4. then start refactoring the current code in **safe, practical steps** to make it more production-minded.
+
+### Priorities
+
+Please prioritize the following:
+
+* keep the app working
+* preserve the current UI and features as much as possible
+* improve the structure of the existing codebase
+* reduce Replit-specific assumptions where possible
+* make the project easier to open and continue in VS Code
+* make the project easier to push to GitHub and deploy on Vercel later
+* improve type safety, code organization, error handling, and maintainability
+* use environment variables correctly
+* avoid hardcoded secrets or fragile config
+* separate UI, logic, data fetching, utilities, config, and types more clearly
+* create clearer client/server boundaries where relevant
+
+### Important
+
+I do **not** want you to only make future code better.
+I want you to start improving the **current existing codebase** now, step by step, toward a Vercel-friendly architecture.
+
+Please do **not** do a reckless full rewrite that breaks everything.
+Instead:
+
+* audit the current structure first
+* explain the main problems
+* propose a step-by-step refactor plan
+* then begin implementing the highest-value changes first
+
+### Standard for future edits
+
+From now on, whenever I ask you to add, modify, or improve anything in this project, please do it in a way that is:
+
+* Vercel-friendly
+* GitHub-friendly
+* easy to continue in VS Code
+* closer to production standards
+* cleaner and safer than quick prototype-only fixes
+
+### Response format I want from you
+
+For each major step:
+
+1. tell me what you found,
+2. tell me what you are changing,
+3. explain why it helps future Vercel deployment,
+4. then implement the change carefully.
+
+My goal is:
+
+**move fast in Replit now, but steadily transform this into a codebase that will be much easier to migrate, maintain, and deploy professionally later.**

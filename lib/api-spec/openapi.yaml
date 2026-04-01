@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: Stock Tracker API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: stocks
+    description: Stock data operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /stocks/{ticker}:
+    get:
+      operationId: getStockData
+      tags: [stocks]
+      summary: Get stock data
+      description: Returns current price, chart data, and news for a stock ticker
+      parameters:
+        - name: ticker
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Stock ticker symbol (e.g. AAPL, TSLA)
+      responses:
+        "200":
+          description: Stock data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StockData"
+        "404":
+          description: Ticker not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+    PricePoint:
+      type: object
+      properties:
+        date:
+          type: string
+          description: Date label (e.g. "Jan 1")
+        price:
+          type: number
+          description: Price in USD
+      required:
+        - date
+        - price
+    NewsItem:
+      type: object
+      properties:
+        id:
+          type: string
+        headline:
+          type: string
+        source:
+          type: string
+        publishedAt:
+          type: string
+        url:
+          type: string
+        summary:
+          type: string
+          description: Short plain-language explanation of why this news matters to investors
+        sentiment:
+          type: string
+          enum: [positive, negative, neutral]
+      required:
+        - id
+        - headline
+        - source
+        - publishedAt
+        - summary
+        - sentiment
+    StockData:
+      type: object
+      properties:
+        ticker:
+          type: string
+        companyName:
+          type: string
+        currency:
+          type: string
+          description: ISO currency code (e.g. USD, KRW, EUR)
+        exchangeName:
+          type: string
+          description: Exchange display name (e.g. NasdaqGS, KSE)
+        currentPrice:
+          type: number
+        previousClose:
+          type: number
+        change:
+          type: number
+        changePercent:
+          type: number
+        high52Week:
+          type: number
+        low52Week:
+          type: number
+        marketCap:
+          type: string
+        volume:
+          type: string
+        priceHistory:
+          type: array
+          items:
+            $ref: "#/components/schemas/PricePoint"
+        news:
+          type: array
+          items:
+            $ref: "#/components/schemas/NewsItem"
+      required:
+        - ticker
+        - companyName
+        - currency
+        - exchangeName
+        - currentPrice
+        - previousClose
+        - change
+        - changePercent
+        - high52Week
+        - low52Week
+        - marketCap
+        - volume
+        - priceHistory
+        - news

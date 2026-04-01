@@ -1,0 +1,76 @@
+Please go ahead and implement the premium/freemium plan we discussed, using the current modular structure and keeping everything clean and Vercel-friendly for future migration.
+
+However, I want one important change to the plan:
+
+**Do not lock chart ranges like 5Y or ALL behind Pro.**
+I want all chart ranges to remain free.
+
+Reason:
+long-term chart access is a basic feature that users can easily get elsewhere for free, so locking it may hurt trust and make the product feel unnecessarily restrictive.
+
+Instead, I want premium features to focus on:
+
+* deeper interpretation
+* decision-support
+* convenience
+* personalization
+
+So please revise the plan like this:
+
+### Keep free
+
+* current price and basic stats
+* all chart ranges
+* core chart interaction
+* a useful free news experience
+* basic “Why It Matters” preview
+* basic P/L calculator
+
+### Make premium
+
+* AI Deep Report (full version)
+* deeper “Why It Matters” analysis
+* premium market analysis
+* extended/personalized news insight
+* email digest preview/subscription UX
+* premium watchlist insights
+* upgrade prompts and locked premium cards
+
+### Architecture requirements
+
+Please keep this implementation:
+
+* modular
+* reusable
+* cleanly structured
+* future-proof for VS Code / GitHub / Vercel
+* based on mock subscription state for now
+* easy to connect later to real auth / billing
+
+### Implementation priority
+
+1. Build the premium foundation first:
+
+   * subscription config
+   * SubscriptionContext
+   * PremiumBadge
+   * PremiumGate
+   * LockedCard
+   * UpgradeModal
+
+2. Then add premium content areas:
+
+   * AI Deep Report
+   * premium article analysis / deeper “Why It Matters”
+   * premium market insight sections
+
+3. Then add:
+
+   * PricingSection
+   * EmailDigestPreview
+
+Important:
+Please do not weaken the free experience too much.
+I want the app to feel genuinely useful for free, while Pro feels more valuable because it gives better interpretation, better context, and more convenience.
+
+Please proceed with that revised plan.

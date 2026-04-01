@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Stock Tracker"
+version = "1.0.0"
+id = "artifacts/stock-tracker"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22521
+
+[services.development]
+run = "pnpm --filter @workspace/stock-tracker run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/stock-tracker", "run", "build" ]
+publicDir = "artifacts/stock-tracker/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22521"
+BASE_PATH = "/"

@@ -1,0 +1,73 @@
+For now, I do not want to implement real payments, real subscriptions, or full production auth yet.
+
+I want to use Replit first to design and build the **full premium product structure and monetization UX** inside the current app.
+
+Please help me build this in a clean, modular, Vercel-friendly way, but for now using **mock subscription states** and **placeholder premium flows**.
+
+## Goal
+
+I want the app to already feel like a real freemium product, even before actual billing is connected.
+
+## What I want to build now
+
+1. A clear **Free vs Pro** product structure
+2. Premium-locked content sections
+3. Upgrade prompts / upgrade modal
+4. AI report style premium content
+5. “Why this matters” premium explanations for news
+6. Email digest preview / placeholder subscription UX
+7. Pricing section or pricing page
+8. Reusable gating system for premium features
+
+## Important
+
+Do not implement real Stripe, full auth, or real email infrastructure yet.
+Instead, build everything using:
+
+* mock `isProUser` / subscription state
+* reusable premium gates
+* locked cards
+* upgrade modal
+* pricing UI
+* placeholder CTA flows
+
+## Product direction
+
+The free version should still feel genuinely useful.
+The paid version should feel like:
+
+* deeper insight
+* faster decision-making
+* more personalization
+* more convenience
+* better context, not just more words
+
+## Suggested premium features to build now
+
+* AI Deep Report card for each stock
+* Partial preview + locked sections
+* Premium “Why This Matters” analysis under articles
+* Daily / weekly email digest preview
+* Premium watchlist insights
+* Premium badges and upgrade prompts
+* Pricing comparison section
+
+## Architecture requirement
+
+Please build this in a reusable way:
+
+* shared premium gating components
+* modular premium cards/sections
+* easy to connect later to real auth/subscription status
+* no hardcoded messy logic scattered across the app
+
+## Suggested implementation order
+
+1. Define Free vs Pro feature map
+2. Create reusable premium gate / locked card / upgrade modal
+3. Add AI Deep Report premium section
+4. Add premium article analysis section
+5. Add pricing section
+6. Add email digest preview UI
+
+Before implementing, first show me a concise plan for the components, mock data, and state structure you want to add.

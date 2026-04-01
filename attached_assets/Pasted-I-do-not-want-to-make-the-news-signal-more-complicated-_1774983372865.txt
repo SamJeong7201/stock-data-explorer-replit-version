@@ -1,0 +1,73 @@
+I do not want to make the news signal more complicated by mixing article sentiment with price movement.
+
+I want to keep the UX simple and intuitive.
+
+## Direction
+
+For the news cards, I want the label to mean only one thing:
+
+* **Bullish** = this article reads as positive for the stock
+* **Bearish** = this article reads as negative for the stock
+* **Neutral** = this article is mixed, unclear, low-impact, or mostly informational
+
+So this label should represent **article interpretation**, not market reaction.
+
+## Important
+
+My issue is not that the system is too simple.
+My issue is that the current classification quality feels wrong.
+
+Sometimes I read the headline and the “Why it matters” text and it feels clearly positive, but the site labels it bearish.
+That hurts trust.
+
+## What I want
+
+Please keep the single-label system, but make the classification logic more refined and more professional.
+
+Use the actual article meaning more carefully:
+
+* headline
+* summary / why it matters
+* whether the content implies a clearly positive effect, clearly negative effect, or an ambiguous / mixed effect
+
+If the signal is not clearly positive or negative, prefer **neutral**.
+
+I want the output to feel:
+
+* simpler
+* more intuitive
+* more trustworthy
+* more aligned with how a thoughtful human would read the article
+
+## UX goal
+
+I want users to feel:
+“Ah, this article is basically positive / negative / neutral for the stock.”
+
+Not:
+“Why is this labeled the opposite of what I just read?”
+
+If useful, you can also add a very short supporting reason under the label, such as:
+
+* product competitiveness improvement
+* demand concern
+* mixed / wait for confirmation
+
+But keep the UI simple.
+
+## Additional requirements
+
+Please make sure this works properly across **all supported languages**, not just one or two.
+The classification logic, labels, supporting reasons, and related UI should stay fully language-aware and consistent in English, Korean, Chinese, and future languages as well.
+
+Please also keep the implementation **clean, modular, and Vercel-friendly**:
+
+* avoid hardcoded language-specific logic scattered across components
+* keep the sentiment logic reusable and easy to improve later
+* structure it so future migration to VS Code / GitHub / Vercel stays smooth
+
+Before implementing, please show me:
+
+* the revised article sentiment criteria
+* how bullish / neutral / bearish will now be determined more carefully
+* how you will make it feel more professional without making it more complicated

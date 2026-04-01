@@ -1,0 +1,13 @@
+packages:
+  "recharts": "For the dynamic stock price history line/area chart"
+  "framer-motion": "For premium staggered entry animations and smooth transitions"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to safely merge Tailwind CSS classes"
+  "lucide-react": "Beautiful consistent icons for the dashboard"
+
+images: []
+
+notes:
+  - "The app relies on GET /api/stocks/:ticker which returns StockData."
+  - "The API client hooks are imported directly from @workspace/api-client-react."
+  - "We assume a fully dark theme is desired by default for the professional finance dashboard look."

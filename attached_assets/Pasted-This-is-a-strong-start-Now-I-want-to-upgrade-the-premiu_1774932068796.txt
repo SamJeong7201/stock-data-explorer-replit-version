@@ -1,0 +1,183 @@
+This is a strong start. Now I want to upgrade the premium experience further.
+
+## Priority 1 — full multilingual premium experience
+
+I want **all premium/freemium UI** to fully follow the selected language.
+
+When the user switches language:
+
+* Korean UI → everything in Korean
+* English UI → everything in English
+* Chinese UI → everything in Chinese
+
+This should apply to:
+
+* Upgrade button
+* Pro badges / locked labels
+* Upgrade modal
+* Pricing section
+* Email digest section
+* AI Deep Report section
+* locked CTA text
+* “Why it matters” premium text
+* all section titles, descriptions, helper text, buttons, placeholders, and status text
+
+Most importantly:
+**the AI Deep Report content itself should also follow the selected language**, not just the surrounding UI.
+
+So if the app language is Korean, the generated premium report should be in polished Korean.
+If English, polished English.
+If Chinese, polished Chinese.
+
+Please refactor this in a clean i18n-friendly way, not with scattered hardcoded strings.
+
+## Priority 2 — make the AI Deep Report feel truly premium and professional
+
+Right now the report feels closer to a useful AI summary.
+I want it to feel much more like a **premium market intelligence brief** or **institutional-grade analyst memo**.
+
+Goal:
+When users read it, I want them to feel:
+
+* “This feels premium”
+* “This feels credible”
+* “This feels professionally structured”
+* “This saves me time”
+* “This feels closer to expert analysis than a basic summary”
+
+## Important direction for the report
+
+Do NOT make it sound like generic ChatGPT text.
+Do NOT make it verbose just for the sake of length.
+Do NOT make it sound overly dramatic or fake-expert.
+
+Instead, make it:
+
+* sharper
+* more structured
+* more credible
+* more decision-oriented
+* more polished
+* more consistent in tone
+
+## Upgrade the AI Deep Report structure
+
+Please redesign the premium report so it feels more like a real paid product.
+
+Suggested structure:
+
+1. Executive Summary
+
+   * concise top-level read on the stock
+   * 2–4 sentence professional overview
+
+2. Market Positioning
+
+   * what the market seems to be pricing in
+   * current posture / pressure / sentiment
+
+3. Key Drivers
+
+   * the main forces moving the stock right now
+   * company-specific + macro/sector context
+
+4. Risk Assessment
+
+   * near-term risks
+   * what could invalidate the current thesis
+
+5. Institutional / Flow Context
+
+   * whether the move looks reactive, trend-following, hedging-driven, or conviction-driven
+   * phrase carefully if data is inferred rather than directly known
+
+6. Decision Context
+
+   * what this setup means for:
+
+     * short-term traders
+     * swing traders
+     * longer-term holders
+
+7. What to Watch Next
+
+   * 3 to 5 concrete things to monitor next
+
+8. Confidence / Caveat Footer
+
+   * clearly premium and polished, but not pretending certainty
+   * should build trust, not overpromise
+
+## Style requirements
+
+I want the report writing style to feel:
+
+* concise but substantial
+* premium
+* institutionally inspired
+* clean and high-signal
+* not bloated
+* not repetitive
+* not like a student summary
+* not like a casual blog post
+
+It should feel like:
+
+* an intelligent market brief
+* a serious premium dashboard
+* something users would believe is worth paying for
+
+## UX / presentation requirements
+
+Please also improve visual presentation of the report so it feels more premium:
+
+* better hierarchy
+* stronger section titles
+* cleaner spacing
+* more polished microcopy
+* more “report” feeling, less “random card list” feeling
+
+If appropriate, improve:
+
+* section labels
+* icon consistency
+* spacing rhythm
+* dividers
+* premium visual cues
+* subtle trust-building footer copy
+
+## Language quality requirement
+
+For each language, avoid literal translation.
+I want the copy to feel native and natural in:
+
+* Korean
+* English
+* Chinese
+
+That means:
+
+* Korean should read professionally and naturally, not awkwardly translated
+* English should read like polished market/product copy
+* Chinese should also feel native and credible
+
+## Architecture requirement
+
+Please implement this in a modular and future-proof way:
+
+* premium report strings centralized
+* multilingual structure reusable
+* report generation easy to upgrade later
+* avoid hardcoded copy scattered across components
+
+## Implementation order
+
+1. First refactor premium/freemium UI text into a clean multilingual structure
+2. Then upgrade AI Deep Report content structure and prompt/output style
+3. Then improve visual presentation of the premium report card so it feels more like a real paid product
+
+Before making major changes, briefly show me the updated structure you plan to use for:
+
+* multilingual premium strings
+* AI Deep Report sections
+* report tone/style rules

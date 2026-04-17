@@ -68,7 +68,7 @@ export function PriorityCard({
       })}`
     : "—";
   const change = data
-    ? `${data.change >= 0 ? "+" : ""}${data.change.toFixed(2)} (${data.changePercent >= 0 ? "+" : ""}${data.changePercent.toFixed(2)}%)`
+    ? `${data.change >= 0 ? "+" : ""}${(data.change ?? 0).toFixed(2)} (${data.changePercent >= 0 ? "+" : ""}${(data.changePercent ?? 0).toFixed(2)}%)`
     : "";
 
   const signalColor = insight ? SIGNAL_COLOR[insight.signal] : "rgba(255,255,255,0.2)";

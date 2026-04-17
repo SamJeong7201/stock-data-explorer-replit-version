@@ -44,7 +44,7 @@ interface Report {
 
 function generateEN(ticker: string, company: string, pct: number): Report {
   const dn = pct < 0;
-  const ap = Math.abs(pct).toFixed(2);
+  const ap = Math.abs(pct ?? 0).toFixed(2);
 
   return {
     generatedAt: new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }),
@@ -127,7 +127,7 @@ function generateEN(ticker: string, company: string, pct: number): Report {
 
 function generateKO(ticker: string, company: string, pct: number): Report {
   const dn = pct < 0;
-  const ap = Math.abs(pct).toFixed(2);
+  const ap = Math.abs(pct ?? 0).toFixed(2);
 
   return {
     generatedAt: new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }),
@@ -210,7 +210,7 @@ function generateKO(ticker: string, company: string, pct: number): Report {
 
 function generateZH(ticker: string, company: string, pct: number): Report {
   const dn = pct < 0;
-  const ap = Math.abs(pct).toFixed(2);
+  const ap = Math.abs(pct ?? 0).toFixed(2);
 
   return {
     generatedAt: new Date().toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" }),

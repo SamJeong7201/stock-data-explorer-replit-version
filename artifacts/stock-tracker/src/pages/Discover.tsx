@@ -349,7 +349,7 @@ function DiscoverCard({
                   }
                   <span className="font-mono text-xs font-bold"
                     style={{ color: up ? "#00FF9C" : "#FF4D4D" }}>
-                    {up ? "+" : ""}{changePct.toFixed(2)}%
+                    {up ? "+" : ""}{(changePct ?? 0).toFixed(2)}%
                   </span>
                 </div>
               )}
@@ -460,7 +460,7 @@ function TrendRow({
           }
           <span className="text-[9px] font-bold font-mono"
             style={{ color: up ? "#00FF9C" : "#FF4D4D" }}>
-            {up ? "+" : ""}{item.changePercent.toFixed(2)}%
+            {up ? "+" : ""}{(item.changePercent ?? 0).toFixed(2)}%
           </span>
         </div>
       </div>

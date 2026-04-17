@@ -120,7 +120,7 @@ export function PriceHeroCard({ data, isPositive, t, dataUpdatedAt }: PriceHeroC
             {isPositive ? <TrendingUp className="w-5 h-5" /> : <TrendingDown className="w-5 h-5" />}
             <span>{isPositive ? "+" : "-"}{currencySymbol}{Math.abs(data.change).toLocaleString()}</span>
             <span className="text-base opacity-75">
-              ({isPositive ? "+" : ""}{data.changePercent.toFixed(2)}%)
+              ({isPositive ? "+" : ""}{(data.changePercent ?? 0).toFixed(2)}%)
             </span>
           </div>
 

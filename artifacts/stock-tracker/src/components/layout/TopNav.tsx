@@ -205,10 +205,10 @@ export function TopNav({ view, onViewChange, ticker, onSelectTicker, lang, onLan
                     const priceStr = s.price != null
                       ? isWholeCurrency(s.currency ?? "")
                         ? `${sym}${Math.round(s.price).toLocaleString()}`
-                        : `${sym}${s.price.toFixed(2)}`
+                        : `${sym}${(s.price ?? 0).toFixed(2)}`
                       : null;
                     const pctStr  = s.changePercent != null
-                      ? (s.changePercent >= 0 ? "+" : "") + s.changePercent.toFixed(2) + "%"
+                      ? (s.changePercent >= 0 ? "+" : "") + (s.changePercent ?? 0).toFixed(2) + "%"
                       : null;
                     const isUp = (s.changePercent ?? 0) >= 0;
 

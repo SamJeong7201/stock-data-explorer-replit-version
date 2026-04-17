@@ -26,7 +26,7 @@ export function formatPrice(value: number, currency: string): string {
   const sym = getCurrencySymbol(currency);
   return isWholeCurrency(currency)
     ? `${sym}${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}`
-    : `${sym}${value.toFixed(2)}`;
+    : `${sym}${(value ?? 0).toFixed(2)}`;
 }
 
 /** Formats an ISO date string as a relative time label (e.g. "3h ago") */

@@ -49,7 +49,7 @@ export function WatchlistInsightCard({
   const sym         = getCurrencySymbol(currency);
   const whole       = isWholeCurrency(currency);
   const price       = data
-    ? `${sym}${data.currentPrice.toLocaleString(undefined, { minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: whole ? 0 : 2 })}`
+    ? `${sym}${(data.currentPrice ?? 0).toLocaleString(undefined, { minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: whole ? 0 : 2 })}`
     : "—";
   const change      = data
     ? `${data.change >= 0 ? "+" : ""}${(data.change ?? 0).toFixed(2)} (${data.changePercent >= 0 ? "+" : ""}${(data.changePercent ?? 0).toFixed(2)}%)`

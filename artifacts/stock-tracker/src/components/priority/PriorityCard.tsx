@@ -62,7 +62,7 @@ export function PriorityCard({
   const sym        = getCurrencySymbol(currency);
   const whole      = isWholeCurrency(currency);
   const price      = data
-    ? `${sym}${data.currentPrice.toLocaleString(undefined, {
+    ? `${sym}${(data.currentPrice ?? 0).toLocaleString(undefined, {
         minimumFractionDigits: whole ? 0 : 2,
         maximumFractionDigits: whole ? 0 : 2,
       })}`

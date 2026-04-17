@@ -11,7 +11,7 @@
  * If the env var is not set, the helper falls back to an empty string
  * so relative paths continue to work (Replit dev, same-origin deploys).
  */
-const API_BASE = import.meta.env["VITE_API_BASE_URL"] ?? "";
+const API_BASE = import.meta.env["VITE_API_BASE_URL"] ?? "https://stock-api-server-e146.onrender.com";
 
 /**
  * Constructs a full API URL from a path.

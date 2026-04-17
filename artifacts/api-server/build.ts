@@ -36,6 +36,7 @@ const allowlist = [
   "ws",
   "xlsx",
   "zod",
+  "yahoo-finance2",
   "zod-validation-error",
 ];
 

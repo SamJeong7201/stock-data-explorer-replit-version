@@ -29,7 +29,7 @@ type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
  * @summary Health check
  */
 export const getHealthCheckUrl = () => {
-  return `/api/healthz`;
+  return `https://stock-api-server-e146.onrender.com/api/healthz`;
 };
 
 export const healthCheck = async (
@@ -105,7 +105,7 @@ export function useHealthCheck<
  * @summary Get stock data
  */
 export const getGetStockDataUrl = (ticker: string) => {
-  return `/api/stocks/${ticker}`;
+  return `https://stock-api-server-e146.onrender.com/api/stocks/${ticker}`;
 };
 
 export const getStockData = async (

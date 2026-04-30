@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { GetStockDataResponse } from "@workspace/api-zod";
-import { yahooFinance } from "../lib/yahoo";
+import { finnhubQuote, finnhubProfile, finnhubNews, finnhubCandles } from "../lib/yahoo";
 import { openai } from "../lib/openai";
 import {
   currencySymbol,

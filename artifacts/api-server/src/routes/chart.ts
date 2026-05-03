@@ -15,15 +15,15 @@ interface RangeConfig {
 }
 
 const RANGE_CONFIG: Record<Range, RangeConfig> = {
-  "1d":  { interval: "5m",  daysBack: 1,   labelFormat: "time" },
-  "3d":  { interval: "1h",  daysBack: 3,   labelFormat: "datetime" },
-  "1w":  { interval: "1h",  daysBack: 7,   labelFormat: "datetime" },
-  "1mo": { interval: "1d",  daysBack: 30,  labelFormat: "date" },
-  "3mo": { interval: "1d",  daysBack: 90,  labelFormat: "date" },
-  "6mo": { interval: "1d",  daysBack: 180, labelFormat: "date" },
-  "1y":  { interval: "1wk", daysBack: 365, labelFormat: "date" },
-  "5y":  { interval: "1mo", daysBack: 365 * 5, labelFormat: "year" },
-  "max": { interval: "1mo", useMax: true,  labelFormat: "year" },
+  "1d":  { interval: "5m",  daysBack: 1,        labelFormat: "time" },
+  "3d":  { interval: "1h",  daysBack: 3,        labelFormat: "datetime" },
+  "1w":  { interval: "1h",  daysBack: 7,        labelFormat: "datetime" },
+  "1mo": { interval: "1d",  daysBack: 30,       labelFormat: "date" },
+  "3mo": { interval: "1d",  daysBack: 90,       labelFormat: "date" },
+  "6mo": { interval: "1d",  daysBack: 180,      labelFormat: "date" },
+  "1y":  { interval: "1wk", daysBack: 365,      labelFormat: "date" },
+  "5y":  { interval: "1mo", daysBack: 365 * 5,  labelFormat: "year" },
+  "max": { interval: "1mo", useMax: true,        labelFormat: "year" },
 };
 
 function formatLabel(date: Date, fmt: RangeConfig["labelFormat"]): string {
@@ -44,6 +44,11 @@ function formatLabel(date: Date, fmt: RangeConfig["labelFormat"]): string {
   }
 }
 
+function round(v: number | null | undefined, decimals: number): number {
+  if (v == null) return 0;
+  return parseFloat(v.toFixed(decimals));
+}
+
 router.get("/:ticker/chart", async (req, res) => {
   const ticker = req.params.ticker.toUpperCase();
   const range = (req.query.range as Range) || "1mo";
@@ -54,10 +59,7 @@ router.get("/:ticker/chart", async (req, res) => {
       if (config.useMax) return new Date("1970-01-01");
       const d = new Date();
       d.setDate(d.getDate() - (config.daysBack ?? 30));
-      if (range === "1d") {
-        // Start from midnight today
-        d.setHours(0, 0, 0, 0);
-      }
+      if (range === "1d") d.setHours(0, 0, 0, 0);
       return d;
     })();
 
@@ -68,14 +70,19 @@ router.get("/:ticker/chart", async (req, res) => {
 
     const currency = chart.meta?.currency ?? "USD";
     const isWhole = isWholeCurrency(currency);
+    const dec = isWhole ? 0 : 2;
 
     const points = (chart.quotes ?? [])
       .filter((q) => q.close !== null && q.close !== undefined)
       .map((q) => ({
-        date: formatLabel(new Date(q.date), config.labelFormat),
+        date:      formatLabel(new Date(q.date), config.labelFormat),
         timestamp: new Date(q.date).getTime(),
-        price: parseFloat((q.close as number).toFixed(isWhole ? 0 : 2)),
-        volume: q.volume ?? 0,
+        open:      round(q.open,  dec),
+        high:      round(q.high,  dec),
+        low:       round(q.low,   dec),
+        close:     round(q.close, dec),
+        price:     round(q.close, dec),
+        volume:    q.volume ?? 0,
       }));
 
     res.json({ ticker, range, currency, points });

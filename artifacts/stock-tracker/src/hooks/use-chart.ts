@@ -6,6 +6,10 @@ export type ChartRange = "1d" | "3d" | "1w" | "1mo" | "3mo" | "6mo" | "1y" | "5y
 export interface ChartPoint {
   date: string;
   timestamp: number;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
   price: number;
   volume: number;
 }
@@ -24,7 +28,6 @@ export function useChart(ticker: string, range: ChartRange) {
 
   useEffect(() => {
     if (!ticker) return;
-
     const controller = new AbortController();
     setIsLoading(true);
     setError(null);
